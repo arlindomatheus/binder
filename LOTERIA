@@ -1,0 +1,101 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled36.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyNDIS8s1rPCcG/wwWTUohRA",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/arlindomatheus/binder/blob/main/LOTERIA\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Qk2iU0fKFv_L",
+        "outputId": "074dcc34-9b2a-4718-b32b-464b35c28408",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 110
+        }
+      },
+      "source": [
+        "import os\n",
+        "import pandas as pd\n",
+        "from random import randint\n",
+        "from time import sleep\n",
+        "\n",
+        "\n",
+        "lista = list()\n",
+        "jogos = list()\n",
+        "print('-'*30)\n",
+        "print('       JOGA NA LOTERIA     ')\n",
+        "print('-'*30)\n",
+        "\n",
+        "\n",
+        "quant = int(input('Quantos jogos você quer que eu sorteie? '))\n",
+        "volantes = int(input('Quantos números por jogo? '))\n",
+        "Lnumber = int(input(\"Número min: \"))\n",
+        "Gnumber = int(input(\"Número max: \"))\n",
+        "tot = 1\n",
+        "while tot <= quant:\n",
+        "    cont = 0\n",
+        "    while True:\n",
+        "        num = randint(Lnumber, Gnumber)\n",
+        "        if num not in lista:\n",
+        "            lista.append(num)\n",
+        "            cont += 1\n",
+        "        if cont >= volantes:\n",
+        "            break\n",
+        "    lista.sort()\n",
+        "    jogos.append(lista[:])\n",
+        "    lista.clear()\n",
+        "    tot += 1\n",
+        "\n",
+        "print('>'*3, f'SORTEANDO {quant} JOGOS', '<'*3)\n",
+        "for i, l in enumerate(jogos):\n",
+        "    print(f'Jogo {i+1}: {l}')\n",
+        "    sleep(0.5)\n",
+        "print('|'*5, 'BOA SORTE!', '|'*5)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "------------------------------\n",
+            "       JOGA NA LOTERIA     \n",
+            "------------------------------\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "vej-s3I1F0hN"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
